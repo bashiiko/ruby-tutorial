@@ -1,5 +1,0 @@
-print(true.to_s)
-print(1.to_s())
-print(1.to_s)
-print(10.to_s(16))
-print(1.to_s(10))

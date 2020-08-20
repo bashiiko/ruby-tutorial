@@ -1,10 +1,3 @@
-name = "alice"
+a = "test"
 
-a=<<~"TEXT"
-  this is a long text
-  test
-  test
-  #{name}
-TEXT
-
-puts a
+puts a.size

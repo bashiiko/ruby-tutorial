@@ -10,4 +10,4 @@ def fizz_buzz(num)
   end
 end
 
-puts fizz_buzz(1).class
+#puts fizz_buzz(1).class

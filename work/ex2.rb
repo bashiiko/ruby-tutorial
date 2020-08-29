@@ -32,10 +32,12 @@ teachers = [ { 1 => [ '佐藤', [ 'E1001', 'E1002' ] ] },
 
 # （改）コースリスト : コース名 => 教師名
 courses_to_teacher = {}
-for t_id in 0..teachers.size-1 do
-  t_name = teachers[t_id].values[0][0]    # 教師名
-  c_id_list = teachers[t_id].values[0][1] # コース ID
-  for c_id in c_id_list
+
+teachers.each do |t|
+  t_name = t.values[0][0]    # 教師名
+  c_id_list = t.values[0][1] # コース ID
+  #for c_id in c_id_list
+  c_id_list.each do |c_id|
     if courses_to_teacher.has_key?(c_id)  # 同一コースを複数の教師が担当している場合
       courses_to_teacher[c_id] = courses_to_teacher[c_id], t_name
     else
@@ -46,9 +48,9 @@ end
 
 #puts courses_to_teacher
 
-for i in 0..courses.size-1 do
+courses.each do |c|
   # Hash.fetch 第一引数：検索対象，第二引数：検索対象が存在しない場合の戻り値
   # courses[i].keys / courses[i].values がArray型で取得されるためkeys[0] / values[0]
-  c_name = courses[i].values[0][0]       # コース名
-  puts "#{c_name} : #{courses_to_teacher.fetch(courses[i].keys[0], '担当なし')}"
+  c_name = c.values[0][0]       # コース名
+  puts "#{c_name} : #{courses_to_teacher.fetch(c.keys[0], '担当なし')}"
 end
